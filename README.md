@@ -1,1 +1,2 @@
-# 2c2p_assessment
+# 2C2P Assessment
+# Project Structure
