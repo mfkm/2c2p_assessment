@@ -89,7 +89,7 @@ namespace _2C2P.Assessment.BusinessLayer
                             foreach (var item in records)
                             {
                                 if (string.IsNullOrEmpty(item.TxId))
-                                    return "No Transaction Id found for row #" + cnt + " in the CSV file!";
+                                    return "No Transaction Id found at row #" + cnt + " in the CSV file!";
                                 if (string.IsNullOrEmpty(item.TxDate))
                                     return "No Transaction Date found for Transaction Id: " + item.TxId + " in the CSV file!";
                                 if (string.IsNullOrEmpty(item.Amount))
