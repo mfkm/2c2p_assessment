@@ -1,4 +1,4 @@
-# Steps to run the services
+# Testing Steps
 
 1. Clone or download this project
 2. Generate database using this SQL script that can be found under SQL_Script folder in the 2C2P.Assessment.DataLayer project in the solution
