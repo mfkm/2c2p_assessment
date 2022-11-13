@@ -1,5 +1,7 @@
 ﻿using _2C2P.Assessment.DataLayer;
 using _2C2P.Assessment.DataLayer.Models;
+using CsvHelper;
+using CsvHelper.Configuration;
 using EFCore.BulkExtensions;
 using Newtonsoft.Json;
 using System.Globalization;
@@ -27,12 +29,10 @@ namespace _2C2P.Assessment.BusinessLayer
                 if (!uploadStatus)
                     return uploadErrMsg;
                 CultureInfo provider = CultureInfo.InvariantCulture;
-                if (input.FileExtension == "csv")
+                int cnt = 1;
+                using (var sr = new StreamReader(filePath))
                 {
-
-                }
-                if (input.FileExtension == "xml")
-                    using (var sr = new StreamReader(filePath))
+                    if (input.FileExtension == "xml")
                     {
                         var fileContent = sr.ReadToEnd();
                         XmlDocument doc = new XmlDocument();
@@ -53,7 +53,6 @@ namespace _2C2P.Assessment.BusinessLayer
                         {
                             return "Unknown format!";
                         }
-                        int cnt = 1;
                         foreach (var item in txList)
                         {
                             if (string.IsNullOrEmpty(item.id))
@@ -81,6 +80,39 @@ namespace _2C2P.Assessment.BusinessLayer
                             cnt++;
                         }
                     }
+                    if (input.FileExtension == "csv")
+                    {
+                        var config = new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = false };
+                        using (var csv = new CsvReader(sr, config))
+                        {
+                            var records = csv.GetRecords<CSVTransactionObj>();
+                            foreach (var item in records)
+                            {
+                                if (string.IsNullOrEmpty(item.TxId))
+                                    return "No Transaction Id found for row #" + cnt + " in the CSV file!";
+                                if (string.IsNullOrEmpty(item.TxDate))
+                                    return "No Transaction Date found for Transaction Id: " + item.TxId + " in the CSV file!";
+                                if (string.IsNullOrEmpty(item.Amount))
+                                    return "No Amount found for Transaction Id: " + item.TxId + " in the CSV file!";
+                                if (string.IsNullOrEmpty(item.CurrencyCode))
+                                    return "No Currency Code found for Transaction Id: " + item.TxId + " in the CSV file!";
+                                if (string.IsNullOrEmpty(item.Status))
+                                    return "No Status found for Transaction Id: " + item.TxId + " in the CSV file!";
+                                importedData.Add(new ImportedDatum()
+                                {
+                                    TxId = item.TxId,
+                                    TxDate = DateTime.ParseExact(item.TxDate, "dd/MM/yyyy hh:mm:ss", provider),
+                                    Amount = double.Parse(item.Amount),
+                                    CurrencyCode = item.CurrencyCode,
+                                    Status = item.Status,
+                                    FinalStatus = (item.Status == "Approved") ? "A" : (item.Status == "Finished") ? "D" : "R",
+                                    SourceData = "csv"
+                                });
+                                cnt++;
+                            }
+                        }
+                    }
+                }
                 var newDataIds = importedData.Select(x => x.TxId).ToList();
                 var existing = db.ImportedData.Where(p => newDataIds.Contains(p.TxId)).FirstOrDefault();
                 if (existing != null)

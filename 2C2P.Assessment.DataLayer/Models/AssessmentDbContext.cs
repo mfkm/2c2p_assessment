@@ -18,7 +18,7 @@ public partial class AssessmentDbContext : DbContext
     public virtual DbSet<ImportedDatum> ImportedData { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=FIRDHAUS-PC\\SQLEXPRESS19;User ID=sa;Password=P@ssw0rd;Database=AssessmentDB;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-8ATMAJF\\SQLEXPRESS;User ID=tenk;Password=P@ssw0rd;Database=AssessmentDB;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
