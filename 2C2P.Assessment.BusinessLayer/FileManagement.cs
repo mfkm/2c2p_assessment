@@ -16,6 +16,8 @@ namespace _2C2P.Assessment.BusinessLayer
                 return "Invalid file input!";
             if (input.FileExtension != "csv" && input.FileExtension != "xml")
                 return "Unknown format!";
+            if (input.FileSize > 1024000)
+                return "The maximum allowed file size is 1MB.";
             using (var db = new AssessmentDbContext())
             {
                 var importedData = new List<ImportedDatum>();

@@ -5,9 +5,11 @@ VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2C2P.Assessment.API", "2C2P.Assessment\2C2P.Assessment.API.csproj", "{3F4155E7-C4EE-40D2-8A3C-1DA8ABA03345}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2C2P.Assessment.BusinessLayer", "2C2P.Assessment.BusinessLayer\2C2P.Assessment.BusinessLayer.csproj", "{055B42F1-FD1B-4BC7-A5DF-95CC367B27D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2C2P.Assessment.BusinessLayer", "2C2P.Assessment.BusinessLayer\2C2P.Assessment.BusinessLayer.csproj", "{055B42F1-FD1B-4BC7-A5DF-95CC367B27D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2C2P.Assessment.DataLayer", "2C2P.Assessment.DataLayer\2C2P.Assessment.DataLayer.csproj", "{9BAE8C5F-5C18-4592-9F00-1E4629F5320C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2C2P.Assessment.DataLayer", "2C2P.Assessment.DataLayer\2C2P.Assessment.DataLayer.csproj", "{9BAE8C5F-5C18-4592-9F00-1E4629F5320C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2C2P.Assessment.WebApp", "2C2P.Assessment.WebApp\2C2P.Assessment.WebApp.csproj", "{23588704-732A-42DF-A035-C98C4742304A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{9BAE8C5F-5C18-4592-9F00-1E4629F5320C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BAE8C5F-5C18-4592-9F00-1E4629F5320C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BAE8C5F-5C18-4592-9F00-1E4629F5320C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23588704-732A-42DF-A035-C98C4742304A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23588704-732A-42DF-A035-C98C4742304A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23588704-732A-42DF-A035-C98C4742304A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23588704-732A-42DF-A035-C98C4742304A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,5 +10,6 @@ namespace _2C2P.Assessment.DataLayer
     {
         public string Base64String { get; set; }
         public string FileExtension { get; set; }
+        public double FileSize { get; set; }
     }
 }
