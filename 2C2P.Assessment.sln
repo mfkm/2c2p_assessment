@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2C2P.Assessment.DataLayer",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2C2P.Assessment.WebApp", "2C2P.Assessment.WebApp\2C2P.Assessment.WebApp.csproj", "{23588704-732A-42DF-A035-C98C4742304A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2C2P.UnitTest", "2C2P.UnitTest\2C2P.UnitTest.csproj", "{48237F5B-C727-494B-AD8F-CB3BDEA7373A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{23588704-732A-42DF-A035-C98C4742304A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23588704-732A-42DF-A035-C98C4742304A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23588704-732A-42DF-A035-C98C4742304A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48237F5B-C727-494B-AD8F-CB3BDEA7373A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48237F5B-C727-494B-AD8F-CB3BDEA7373A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48237F5B-C727-494B-AD8F-CB3BDEA7373A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48237F5B-C727-494B-AD8F-CB3BDEA7373A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
